@@ -10,14 +10,13 @@
 class Solution:
     def URLify(self, string: str, length: int):
         """ Solution
-            Runtime: O() """
+            Runtime: O(n) assumed from join function"""
 
         if(len(string) <= 0):
             return None
 
         true_string = string[:length]
         true_string = '%20'.join(true_string.split())
-
 
         return true_string
 
