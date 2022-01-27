@@ -3,6 +3,14 @@
 
 class Solution:
     def isUnique(self, string: str):
+        """Solution by using dictionary to store unique characters
+        
+        Args:
+            string (str): string to be analyzed
+
+        Returns:
+            bool: Value of whether or not string has unique characters
+        """
         unique_strings = {}
 
         for char in string:
@@ -18,17 +26,3 @@ class Solution:
                 if char == char2:
                     return False
         return True
-
-solution = Solution()
-
-trueString = "abcdefg"
-falseString = "aaaa"
-falseString2 = "aaabbb"
-
-print(solution.isUnique(trueString))
-print(solution.isUnique(falseString))
-print(solution.isUnique(falseString2))
-
-print(solution.isUniqueNoDS(trueString))
-print(solution.isUniqueNoDS(falseString))
-print(solution.isUniqueNoDS(falseString2))

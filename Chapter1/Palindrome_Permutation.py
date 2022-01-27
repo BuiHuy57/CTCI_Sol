@@ -41,7 +41,3 @@ class Solution:
                 return False
 
         return True
-
-solution = Solution()
-print(solution.palindromePermutation("Tact Coa"))
-print(solution.palindromePermutation("avfdanjin"))

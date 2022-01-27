@@ -3,9 +3,6 @@
 
 class Solution:
     def oneAway(self, string: str, editedString: str):
-        length_og = len(string)
-        length_edit = len(editedString)
-
         letters_og = {}
         letters_ed = {}
 
@@ -14,14 +11,33 @@ class Solution:
                 letters_og[char] = 1
             else:
                 letters_og[char] += 1
-
+                
+        for char in editedString:
+            if char not in letters_ed:
+                letters_ed[char] = 1
+            else:
+                letters_ed[char] += 1
+                
+        length_difference = len(editedString) - len(string)
+                
+        if abs(length_difference) > 1:
+            return False
         
-
+        if length_difference == 0:
+            different_chars = 0
+            for char in editedString:
+                if char not in letters_og:
+                    different_chars += 1
+            
+            if different_chars > 1:
+                return False
+        elif length_difference == 1:
+            for char in string:
+                if char not in letters_ed:
+                    return False
+        elif length_difference == -1:
+            for char in editedString:
+                if char not in letters_og:
+                    return False
+        
         return True
-
-solution = Solution()
-solution.oneAway("pale", "ple") # --> True
-solution.oneAway("pel", "peel") # --> True
-solution.oneAway("pales", "pale") # --> True
-solution.oneAway("pale", "bale") # --> True
-solution.oneAway("pale", "bake") # --> False

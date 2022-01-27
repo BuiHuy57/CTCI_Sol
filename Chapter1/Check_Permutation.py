@@ -2,8 +2,19 @@
 
 class Solution:
     def checkPermutation1(self, string1: str, string2: str):
-        """ Solution by sorting and comparing strings. 
-            Runtime: O(nlogn) """
+        """Solution by sorting and comparing strings. 
+            Runtime: O(nlogn)
+
+        Args:
+            string1 (str): first string
+            string2 (str): second string to compare to first
+
+        Returns:
+            bool: returns whether or not strings are permutations of each other
+        """
+        
+        # If string lengths aren't the same,
+        # we know they can't be permutations of each other
         if len(string1) != len(string2):
             return False
 
@@ -16,14 +27,17 @@ class Solution:
             return False
 
     def checkPermutations2(self, string1: str, string2: str):
-        """ Solution by 
-            Runtime: O() """
+        """ Solution by using dictionaries to store characters and comparing the two
+            Runtime: O(n) """
+        
+        # If string lengths aren't the same,
+        # we know they can't be permutations of each other
+        if len(string1) != len(string2):
+            return False
+        
+        dict1 = {}
+        for char in string1:
+            if char not in dict1:
+                dict1[char] = 1
+        
         return True
-
-solution = Solution()
-
-strings1 = ["abcdef", "fedbca"]
-strings2 = ["ahdehf", "fedhahnvas"]
-
-print(solution.checkPermutation1(strings1[0], strings1[1]))
-print(solution.checkPermutation1(strings2[0], strings2[1]))
