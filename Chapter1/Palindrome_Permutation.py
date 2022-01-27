@@ -10,7 +10,7 @@
     """
 
 class Solution:
-    def palindromePermutation(self, string: str):
+    def palindromePermutation(self, string: str) -> bool:
         if len(string) <= 0:
             return False
 

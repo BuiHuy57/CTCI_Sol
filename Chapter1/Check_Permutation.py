@@ -1,7 +1,7 @@
 """ Given two strings, write a method to decide if one is a permutation of the other. """
 
 class Solution:
-    def checkPermutation1(self, string1: str, string2: str):
+    def checkPermutation1(self, string1: str, string2: str) -> bool:
         """Solution by sorting and comparing strings. 
             Runtime: O(nlogn)
 
@@ -26,7 +26,7 @@ class Solution:
         else :
             return False
 
-    def checkPermutations2(self, string1: str, string2: str):
+    def checkPermutations2(self, string1: str, string2: str) -> bool:
         """ Solution by using dictionaries to store characters and comparing the two
             Runtime: O(n) """
         

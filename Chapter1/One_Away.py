@@ -2,7 +2,7 @@
     Given two strings, write a function to check if they are one edit (or zero edits) away """
 
 class Solution:
-    def oneAway(self, string: str, editedString: str):
+    def oneAway(self, string: str, editedString: str) -> bool:
         letters_og = {}
         letters_ed = {}
 

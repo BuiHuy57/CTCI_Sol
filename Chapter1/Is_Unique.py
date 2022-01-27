@@ -2,7 +2,7 @@
     What if you cannot use additional data structures? """
 
 class Solution:
-    def isUnique(self, string: str):
+    def isUnique(self, string: str) -> bool:
         """Solution by using dictionary to store unique characters
         
         Args:
@@ -20,7 +20,7 @@ class Solution:
                 unique_strings[char] = 1
         return True
 
-    def isUniqueNoDS(self, string: str):
+    def isUniqueNoDS(self, string: str) -> bool:
         for char in string:
             for char2 in range(string[1], len(string)):
                 if char == char2:

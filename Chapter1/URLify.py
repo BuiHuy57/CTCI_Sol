@@ -8,7 +8,7 @@
     """
 
 class Solution:
-    def URLify(self, string: str, length: int):
+    def URLify(self, string: str, length: int) -> str:
         """ Solution
             Runtime: O(n) assumed from join function"""
 
@@ -19,7 +19,3 @@ class Solution:
         true_string = '%20'.join(true_string.split())
 
         return true_string
-
-solution = Solution()
-
-print(solution.URLify("Mr John Smith     ", 13))

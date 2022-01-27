@@ -4,6 +4,8 @@ import Is_Unique
 import Check_Permutation
 import One_Away
 import Palindrome_Permutation
+import URLify
+import String_Compression
 
 class TestCh1(unittest.TestCase):
     def test_is_unique(self):
@@ -34,6 +36,15 @@ class TestCh1(unittest.TestCase):
         strings2 = ["ahdehf", "fedhahnvas"]
         actual = solution.checkPermutation1(strings2[0], strings2[1])
         expected = False
+        self.assertEqual(actual, expected)
+        
+    def test_URLify(self):
+        solution = URLify.Solution()
+        string = "Mr John Smith     "
+        true_length1 = 13
+        
+        actual = solution.URLify(string, true_length1)
+        expected = "Mr%20John%20Smith"
         self.assertEqual(actual, expected)
         
     def test_palindrome_perms(self):
@@ -75,6 +86,14 @@ class TestCh1(unittest.TestCase):
         case5 = ["pale", "bake"]
         actual = solution.oneAway(case5[0], case5[1])
         expected = False
+        self.assertEqual(actual, expected)
+        
+    def test_string_comp(self):
+        solution = String_Compression.Solution()
+        
+        string1 = "aabcccccaaa"
+        actual = solution.stringCompression(string1)
+        expected = "a2b1c5a3"
         self.assertEqual(actual, expected)
     
 if __name__ == "__main__":
