@@ -1,11 +1,6 @@
 import unittest
 
-import Is_Unique
-import Check_Permutation
-import One_Away
-import Palindrome_Permutation
-import URLify
-import String_Compression
+from Chapter1 import (Is_Unique, Check_Permutation, One_Away, Palindrome_Permutation, URLify, String_Compression, Rotate_Matrix)
 
 class TestCh1(unittest.TestCase):
     def test_is_unique(self):
@@ -94,6 +89,20 @@ class TestCh1(unittest.TestCase):
         string1 = "aabcccccaaa"
         actual = solution.stringCompression(string1)
         expected = "a2b1c5a3"
+        self.assertEqual(actual, expected)
+        
+        string2 = "aaaaa"
+        actual = solution.stringCompression(string2)
+        expected = "a5"
+        self.assertEqual(actual, expected)
+        
+    def test_rotate_matrix(self):
+        solution = Rotate_Matrix.Solution()
+        matrix1 = [[]]
+        
+        actual = solution.rotate_matrix(matrix1)
+        expected = [[]]
+        
         self.assertEqual(actual, expected)
     
 if __name__ == "__main__":
