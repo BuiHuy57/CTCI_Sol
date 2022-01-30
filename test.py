@@ -1,6 +1,8 @@
 import unittest
 
+from data_structs import (Node, SLinkedList)
 from Chapter1 import (Is_Unique, Check_Permutation, One_Away, Palindrome_Permutation, URLify, String_Compression, Rotate_Matrix)
+from Chapter2 import (Remove_Dups)
 
 class TestCh1(unittest.TestCase):
     def test_is_unique(self):
@@ -102,6 +104,16 @@ class TestCh1(unittest.TestCase):
         
         actual = solution.rotate_matrix(matrix1)
         expected = [[]]
+        
+        self.assertEqual(actual, expected)
+        
+class TestCh2(unittest.TestCase):
+    def test_remove_dups(self):
+        solution = Remove_Dups.Solution()
+        linkedlist = SLinkedList([9, 8, 7, 7])
+        
+        actual = solution.remove_dups(linkedlist)
+        expected = SLinkedList([9, 8, 7])
         
         self.assertEqual(actual, expected)
     
