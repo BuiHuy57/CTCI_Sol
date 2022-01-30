@@ -1,3 +1,4 @@
+# Generic Linked List node implementation
 class Node:
     def __init__(self, datavalue=None):
         self.data = datavalue

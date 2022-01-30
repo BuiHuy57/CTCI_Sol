@@ -2,7 +2,7 @@
     What if you cannot use additional data structures? """
 
 class Solution:
-    def isUnique(self, string: str) -> bool:
+    def isUnique(self, string:str = None) -> bool:
         """Solution by using dictionary to store unique characters
         
         Args:
@@ -11,6 +11,10 @@ class Solution:
         Returns:
             bool: Value of whether or not string has unique characters
         """
+        
+        if string is None:
+            return False
+        
         unique_strings = {}
 
         for char in string:

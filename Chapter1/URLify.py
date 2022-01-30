@@ -8,9 +8,12 @@
     """
 
 class Solution:
-    def URLify(self, string: str, length: int) -> str:
+    def URLify(self, string:str = None, length:int = None) -> str:
         """ Solution
             Runtime: O(n) assumed from join function"""
+            
+        if string is None or length is None:
+            return None
 
         if(len(string) <= 0):
             return None
