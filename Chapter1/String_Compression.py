@@ -2,7 +2,8 @@
     For example, the string aabcccccaaa would become a2b1c5a3. 
     If the "compressed" string would not become smaller than the original string, your method should return the original string.
     You can assume the string has only uppercase and lowercase letters (a-z)."""
-    
+
+
 class Solution():
     def stringCompression(self, string: str) -> str:
         """ Solution using for loop to check for duplicates
@@ -23,8 +24,8 @@ class Solution():
             else:
                 newstring = newstring + f"{string[i-1]}{count}"
                 count = 1
-        
+
         if count > 0:
             newstring = newstring + f"{string[length-1]}{count}"
-            
+
         return newstring

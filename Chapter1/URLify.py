@@ -7,11 +7,12 @@
     
     """
 
+
 class Solution:
-    def URLify(self, string:str = None, length:int = None) -> str:
+    def URLify(self, string: str = None, length: int = None) -> str:
         """ Solution
             Runtime: O(n) assumed from join function"""
-            
+
         if string is None or length is None:
             return None
 

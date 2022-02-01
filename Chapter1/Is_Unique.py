@@ -1,20 +1,21 @@
 """ Implement an algorithm to determine if a string has all unique characters. 
     What if you cannot use additional data structures? """
 
+
 class Solution:
-    def isUnique(self, string:str = None) -> bool:
+    def isUnique(self, string: str = None) -> bool:
         """Solution by using dictionary to store unique characters
-        
+
         Args:
             string (str): string to be analyzed
 
         Returns:
             bool: Value of whether or not string has unique characters
         """
-        
+
         if string is None:
             return False
-        
+
         unique_strings = {}
 
         for char in string:

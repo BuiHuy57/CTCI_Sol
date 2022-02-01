@@ -9,16 +9,17 @@
     
     """
 
+
 class Solution:
-    def palindromePermutation(self, string:str = None) -> bool:
+    def palindromePermutation(self, string: str = None) -> bool:
         if string is None:
             return False
-        
+
         if len(string) <= 0:
             return False
 
         letters = {}
-        true_string = string.replace(" ","").upper()
+        true_string = string.replace(" ", "").upper()
 
         for char in true_string:
             if char not in letters:
@@ -32,7 +33,7 @@ class Solution:
                 # If length of string is even, we need all letters to have an even amount of occurrences
                 if letters[letter] % 2 != 0:
                     return False
-        else: 
+        else:
             odd = 0
             for letter in letters:
 

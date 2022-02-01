@@ -1,7 +1,9 @@
 """ Implement an algorithm to find the kth to last element of a singly linked list """
 from data_structs import (Node, SLinkedList)
+
+
 class Solution():
-    def kth_to_last(self, linkedlist:SLinkedList = None, k:int = None) -> Node:
+    def kth_to_last(self, linkedlist: SLinkedList = None, k: int = None) -> Node:
         """Function that returns kth to last element of singly linked list
 
         Args:
@@ -11,5 +13,7 @@ class Solution():
         Returns:
             Node: kth last element to be returned
         """
-        
-        return None
+
+        kth_last = Node()
+
+        return kth_last
