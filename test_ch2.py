@@ -1,7 +1,8 @@
+from ast import Assert
 import unittest
 
 from data_structs import (Node, SLinkedList)
-from Chapter2 import (Remove_Dups, Kth_To_Last)
+from Chapter2 import (Remove_Dups, Kth_To_Last, Del_Mid_Node)
 
 
 class Test_Remove_Dups(unittest.TestCase):
@@ -67,6 +68,51 @@ class Test_Kth_Last_El(unittest.TestCase):
 
         with self.assertRaises(AssertionError):
             out = self.solution.kth_to_last(linkedlist, k)
+
+
+class Test_Del_Mid_Node(unittest.TestCase):
+    def setUp(self):
+        self.solution = Del_Mid_Node.Solution()
+
+    def test_normal(self):
+        linkedlist = SLinkedList(["a", "b", "c", "d", "e", "f"])
+
+        node = linkedlist.head
+        while node.data != "c":
+            node = node.next
+
+        self.solution.del_mid_node(node)
+        linkedlist.setsize(linkedlist.getsize())
+        expected = SLinkedList(["a", "b", "d", "e", "f"])
+
+        self.assertEqual(linkedlist, expected)
+
+    def test_three_el(self):
+        linkedlist = SLinkedList(["a", "b", "c"])
+        node = linkedlist.head
+        while node.data != "b":
+            node = node.next
+
+        self.solution.del_mid_node(node)
+        expected = SLinkedList(["a", "c"])
+
+        self.assertEqual(linkedlist, expected)
+
+    def test_one_el(self):
+        linkedlist = SLinkedList(["a"])
+        node = linkedlist.head
+
+        self.solution.del_mid_node(node)
+        expected = SLinkedList(["a"])
+
+        self.assertEqual(linkedlist, expected)
+
+    def test_empty_list(self):
+        linkedlist = SLinkedList([])
+        node = linkedlist.head
+
+        with self.assertRaises(AssertionError):
+            self.solution.del_mid_node(node)
 
 
 if __name__ == "__main__":

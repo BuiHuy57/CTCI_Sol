@@ -59,6 +59,9 @@ class SLinkedList:
         if self.size != linkedlist.getsize():
             return False
 
+        self.printlist()
+        linkedlist.printlist()
+
         ptr = self.head
         other_ptr = linkedlist.head
 
