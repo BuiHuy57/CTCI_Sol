@@ -4,6 +4,14 @@ class Node:
         self.data = datavalue
         self.next = None
 
+    def __eq__(self, other=None) -> bool:
+        if other is None:
+            return False
+
+        if self.data == other.data:
+            return True
+        return False
+
 
 # Singly linked list implementation
 class SLinkedList:
@@ -42,21 +50,13 @@ class SLinkedList:
     def printlist(self) -> None:
         ptr = self.head
         while ptr is not None:
-            print(f'DATA: {ptr.data}')
             ptr = ptr.next
 
     def __eq__(self, linkedlist: object) -> bool:
         if linkedlist is None:
             return False
 
-        print("SELF")
-        self.printlist()
-
-        print("LINKEDLIST")
-        linkedlist.printlist()
-
         if self.size != linkedlist.getsize():
-            print(f"NOT EQUAL IN SIZE: {self.size, linkedlist.getsize()}")
             return False
 
         ptr = self.head
@@ -64,7 +64,6 @@ class SLinkedList:
 
         while ptr is not None and other_ptr is not None:
             if ptr.data != other_ptr.data:
-                print("NOT EQUAL IN DATA")
                 return False
 
             ptr = ptr.next

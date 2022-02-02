@@ -13,7 +13,21 @@ class Solution():
         Returns:
             Node: kth last element to be returned
         """
+        length = linkedlist.getsize()
+        last_index = length - k
 
-        kth_last = Node()
+        assert(k > 0 and length > 0 and last_index >= 0)
+
+        ptr = linkedlist.head
+
+        if last_index == 0:
+            return ptr
+
+        index = 0
+        while index < (last_index+1):
+            ptr = ptr.next
+            index += 1
+
+        kth_last = ptr
 
         return kth_last
