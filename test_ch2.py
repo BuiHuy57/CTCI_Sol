@@ -2,7 +2,7 @@ from ast import Assert
 import unittest
 
 from data_structs import (Node, SLinkedList)
-from Chapter2 import (Remove_Dups, Kth_To_Last, Del_Mid_Node)
+from Chapter2 import (Remove_Dups, Kth_To_Last, Del_Mid_Node, Sum_Lists)
 
 
 class Test_Remove_Dups(unittest.TestCase):
@@ -111,6 +111,54 @@ class Test_Del_Mid_Node(unittest.TestCase):
 
         with self.assertRaises(AssertionError):
             self.solution.del_mid_node(node)
+
+
+class Test_Sum_Lists(unittest.TestCase):
+    def setUp(self):
+        self.solution = Sum_Lists.Solution()
+
+    def test_normal(self):
+        list1 = SLinkedList([6, 1, 7])
+        list2 = SLinkedList([2, 9, 5])
+
+        actual = self.solution.sum_lists(list1, list2)
+        expected = SLinkedList([9, 1, 2])
+
+        self.assertEqual(actual, expected)
+
+    def test_one_digit(self):
+        list1 = SLinkedList([1])
+        list2 = SLinkedList([2])
+
+        actual = self.solution.sum_lists(list1, list2)
+        expected = SLinkedList([3])
+
+        self.assertEqual(actual, expected)
+
+    def test_empty_list(self):
+        list1 = SLinkedList([6, 1, 7])
+        list2 = SLinkedList([])
+
+        with self.assertRaises(AssertionError):
+            actual = self.solution.sum_lists(list1, list2)
+
+    def test_carry_over(self):
+        list1 = SLinkedList([6, 1, 7])
+        list2 = SLinkedList([4, 0, 1])
+
+        actual = self.solution.sum_lists(list1, list2)
+        expected = SLinkedList([1, 0, 1, 8])
+
+        self.assertEqual(actual, expected)
+
+    def test_neg_num(self):
+        list1 = SLinkedList([6, 1, 7])
+        list2 = SLinkedList([-4, 0, 1])
+
+        actual = self.solution.sum_lists(list1, list2)
+        expected = SLinkedList([1, 0, 1, 8])
+
+        self.assertEqual(actual, expected)
 
 
 if __name__ == "__main__":
