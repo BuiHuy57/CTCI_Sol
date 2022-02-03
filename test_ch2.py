@@ -102,10 +102,8 @@ class Test_Del_Mid_Node(unittest.TestCase):
         linkedlist = SLinkedList(["a"])
         node = linkedlist.head
 
-        self.solution.del_mid_node(node)
-        expected = SLinkedList(["a"])
-
-        self.assertEqual(linkedlist, expected)
+        with self.assertRaises(AssertionError):
+            self.solution.del_mid_node(node)
 
     def test_empty_list(self):
         linkedlist = SLinkedList([])

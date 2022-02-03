@@ -50,17 +50,12 @@ class SLinkedList:
     def printlist(self) -> None:
         ptr = self.head
         while ptr is not None:
+            print(f"DATA: {ptr.data}")
             ptr = ptr.next
 
     def __eq__(self, linkedlist: object) -> bool:
         if linkedlist is None:
             return False
-
-        if self.size != linkedlist.getsize():
-            return False
-
-        self.printlist()
-        linkedlist.printlist()
 
         ptr = self.head
         other_ptr = linkedlist.head
@@ -71,5 +66,8 @@ class SLinkedList:
 
             ptr = ptr.next
             other_ptr = other_ptr.next
+
+        if (ptr is not None and other_ptr is None) or (ptr is None and other_ptr is not None):
+            return False
 
         return True

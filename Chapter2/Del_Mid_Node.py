@@ -7,13 +7,8 @@ from data_structs import (Node)
 class Solution():
     def del_mid_node(self, node: Node = None) -> None:
 
-        assert(node is not None)
+        assert(node is not None and node.next is not None)
 
-        node_ptr = node
-
-        while node_ptr.next is not None:
-            node_ptr.data = node_ptr.next.data
-            node_ptr = node_ptr.next
-
-        node_ptr = None
-        return
+        next_ptr = node.next
+        node.data = next_ptr.data
+        node.next = next_ptr.next
