@@ -1,8 +1,10 @@
 from ast import Assert
+from re import A
 import unittest
 
 from data_structs import (Node, SLinkedList)
-from Chapter2 import (Remove_Dups, Kth_To_Last, Del_Mid_Node, Sum_Lists)
+from Chapter2 import (Remove_Dups, Kth_To_Last,
+                      Del_Mid_Node, Sum_Lists, Palindrome)
 
 
 class Test_Remove_Dups(unittest.TestCase):
@@ -151,12 +153,32 @@ class Test_Sum_Lists(unittest.TestCase):
 
         self.assertEqual(actual, expected)
 
-    def test_neg_num(self):
-        list1 = SLinkedList([6, 1, 7])
-        list2 = SLinkedList([-4, 0, 1])
 
-        actual = self.solution.sum_lists(list1, list2)
-        expected = SLinkedList([1, 0, 1, 8])
+class Test_Palindrom(unittest.TestCase):
+    def setUp(self):
+        self.solution = Palindrome.Solution()
+
+    def test_normal(self):
+        linkedlist = SLinkedList(["r", "a", "c", "e", "c", "a", "r"])
+
+        actual = self.solution.palindrome(linkedlist)
+        expected = True
+
+        self.assertEqual(actual, expected)
+
+    def test_false(self):
+        linkedlist = SLinkedList(["r", "a", "c", "e"])
+
+        actual = self.solution.palindrome(linkedlist)
+        expected = False
+
+        self.assertEqual(actual, expected)
+
+    def test_empty(self):
+        linkedlist = SLinkedList()
+
+        actual = self.solution.palindrome(linkedlist)
+        expected = False
 
         self.assertEqual(actual, expected)
 
