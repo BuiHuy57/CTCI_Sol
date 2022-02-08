@@ -4,7 +4,7 @@ import unittest
 
 from data_structs import (Node, SLinkedList)
 from Chapter2 import (Remove_Dups, Kth_To_Last,
-                      Del_Mid_Node, Sum_Lists, Palindrome)
+                      Del_Mid_Node, Sum_Lists, Palindrome, Partition)
 
 
 class Test_Remove_Dups(unittest.TestCase):
@@ -154,7 +154,7 @@ class Test_Sum_Lists(unittest.TestCase):
         self.assertEqual(actual, expected)
 
 
-class Test_Palindrom(unittest.TestCase):
+class Test_Palindrome(unittest.TestCase):
     def setUp(self):
         self.solution = Palindrome.Solution()
 
@@ -179,6 +179,40 @@ class Test_Palindrom(unittest.TestCase):
 
         actual = self.solution.palindrome(linkedlist)
         expected = False
+
+        self.assertEqual(actual, expected)
+
+
+class Test_Partition(unittest.TestCase):
+    def setUp(self) -> None:
+        self.solution = Partition.Solution()
+
+    def test_normal(self):
+        linkedlist = SLinkedList([1, 2, 10, 5, 8, 5, 3])
+        partition = 5
+
+        actual = self.solution.partition(linkedlist, partition)
+        expected = SLinkedList([8, 5, 5, 10, 2, 1, 3])
+
+        self.assertEqual(actual, expected)
+
+    def test_input(self):
+        linkedlist = SLinkedList([])
+        partition = 0
+
+        actual = self.solution.partition(linkedlist, partition)
+        expected = SLinkedList([])
+
+        self.assertEqual(actual, expected)
+
+    def test_neg_numbers(self):
+        # original: 2 -> -7 -> 4 -> 0 -> -5 -> 1
+        # expected: -7 -> -5 -> 2 -> 4 -> 0 -> 1
+        linkedlist = SLinkedList([1, -5, 0, 4, -7, 2])
+        partition = -1
+
+        actual = self.solution.partition(linkedlist, partition)
+        expected = SLinkedList([1, 0, 4, 2, -5, -7])
 
         self.assertEqual(actual, expected)
 
