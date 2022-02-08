@@ -1,5 +1,3 @@
-from ast import Assert
-from re import A
 import unittest
 
 from data_structs import (Node, SLinkedList)
