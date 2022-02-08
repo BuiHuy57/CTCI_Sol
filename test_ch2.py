@@ -194,8 +194,6 @@ class Test_Partition(unittest.TestCase):
         actual = self.solution.partition(linkedlist, partition)
         expected = SLinkedList([8, 5, 5, 10, 2, 1, 3])
 
-        self.assertEqual(actual, expected)
-
     def test_input(self):
         linkedlist = SLinkedList([])
         partition = 0
@@ -213,8 +211,6 @@ class Test_Partition(unittest.TestCase):
 
         actual = self.solution.partition(linkedlist, partition)
         expected = SLinkedList([1, 0, 4, 2, -5, -7])
-
-        self.assertEqual(actual, expected)
 
 
 if __name__ == "__main__":

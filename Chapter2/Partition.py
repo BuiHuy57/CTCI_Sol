@@ -5,9 +5,22 @@ from data_structs import (Node, SLinkedList)
 
 
 class Solution():
-    def partition(linkedlist: SLinkedList, partition: int) -> SLinkedList:
+    def partition(self, linkedlist: SLinkedList, partition: int) -> SLinkedList:
 
         if linkedlist.head is None:
             return linkedlist
+        
+        newlist = SLinkedList([])
+        ptr = linkedlist.head
+        while ptr is not None:
+            if ptr.data >= partition:
+                newlist.insert(ptr.data)
+            ptr = ptr.next
+            
+        ptr = linkedlist.head
+        while ptr is not None:
+            if ptr.data < partition:
+                newlist.insert(ptr.data)
+            ptr = ptr.next
 
-        return None
+        return newlist
