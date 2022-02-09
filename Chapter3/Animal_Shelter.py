@@ -6,7 +6,7 @@
 from data_structs import Node, SLinkedList
 
 
-class Animal_Shelter():
+class Animal_Shelter:
     def __init__(self) -> None:
         self.shelter = SLinkedList([])
         self.dogs = SLinkedList([])

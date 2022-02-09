@@ -5,7 +5,7 @@
 from data_structs import Node, SLinkedList
 
 
-class Sort_Stack():
+class Sort_Stack:
     def sort_stack(self, stack: SLinkedList = None) -> SLinkedList:
         assert(
             not stack.isEmpty())

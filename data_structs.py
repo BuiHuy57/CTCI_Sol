@@ -74,3 +74,15 @@ class SLinkedList:
             return False
 
         return True
+
+
+class Graph_Node():
+    def __init__(self):
+        self.name = ""
+        self.children = []
+
+
+class DGraph:
+    def __init__(self):
+        self.nodes = []
+        return None
