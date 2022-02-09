@@ -1,7 +1,7 @@
 import unittest
 
-from data_structs import (Node)
-from Chapter3 import (Stack_Min, Animal_Shelter)
+from data_structs import (Node, SLinkedList)
+from Chapter3 import (Stack_Min, Animal_Shelter, Sort_Stack)
 
 
 class Test_Stack_Min(unittest.TestCase):
@@ -74,6 +74,33 @@ class Test_Animal_Shelter(unittest.TestCase):
     def test_empty_dogs(self):
         with self.assertRaises(Exception):
             self.shelter.dequeueDog()
+
+
+class Test_Sort_Stack(unittest.TestCase):
+    def setUp(self):
+        self.solution = Sort_Stack.Sort_Stack()
+
+    def test_normal(self):
+        stack = SLinkedList([7, 1, 2, 5])
+
+        actual = self.solution.sort_stack(stack)
+        expected = SLinkedList([7, 5, 2, 1])
+
+        self.assertEqual(actual, expected)
+
+    def test_bad_input(self):
+        stack = SLinkedList([])
+
+        with self.assertRaises(Exception):
+            actual = self.solution.sort_stack(stack)
+
+    def test_neg_nums(self):
+        stack = SLinkedList([-7, 1, 0, -6])
+
+        actual = self.solution.sort_stack(stack)
+        expected = SLinkedList([1, 0, -6, -7])
+
+        self.assertEqual(actual, expected)
 
 
 if __name__ == "__main__":

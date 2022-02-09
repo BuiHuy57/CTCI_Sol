@@ -47,6 +47,9 @@ class SLinkedList:
     def peek(self) -> Node:
         return self.head
 
+    def isEmpty(self) -> bool:
+        return self.head is None
+
     def printlist(self) -> None:
         ptr = self.head
         while ptr is not None:
