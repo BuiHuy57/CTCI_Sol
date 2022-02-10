@@ -76,13 +76,16 @@ class SLinkedList:
         return True
 
 
-class Graph_Node():
-    def __init__(self):
-        self.name = ""
-        self.children = []
-
-
+# Directed graph implementation
 class DGraph:
-    def __init__(self):
-        self.nodes = []
-        return None
+    def __init__(self, nodes: dict = None):
+        if nodes is None:
+            nodes = []
+        self.nodes = nodes
+
+    def getVertices(self):
+        return list(self.nodes.keys())
+
+    def addNode(self, node):
+        if node not in self.nodes:
+            self.nodes[node] = []
