@@ -89,3 +89,52 @@ class DGraph:
     def addNode(self, node):
         if node not in self.nodes:
             self.nodes[node] = []
+
+
+# Tree Node implementation
+class TreeNode:
+    def __init__(self, data=None, left=None, right=None):
+        assert(data is not None), "Data cannot be none when creating node"
+        self.data = data
+        self.left: TreeNode = left
+        self.right: TreeNode = right
+
+    def insert(self, data):
+        assert(data is not None), "Data cannot be none when creating node"
+        if data <= self.data:
+            if self.left is None:
+                self.left = TreeNode(data)
+            else:
+                self.left.insert(data)
+        else:
+            if self.right is None:
+                self.right = TreeNode(data)
+            else:
+                self.right.insert(data)
+
+    def printTree(self):
+        if self.left is not None:
+            self.left.printTree()
+
+        print(self.data)
+
+        if self.right is not None:
+            self.right.printTree()
+
+
+# Binary Search Tree Implementation
+class BST:
+    def __init__(self, array: list = None):
+        assert(array is not None)
+
+        self.root = TreeNode(data=array[0])
+
+        for node in array:
+            self.root.insert(node)
+
+    def printTree(self):
+        self.root.printTree()
+
+    def __eq__(self, tree: object) -> bool:
+        if self.root.data != tree.root.data:
+            return False

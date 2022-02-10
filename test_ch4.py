@@ -1,7 +1,7 @@
 import unittest
 
-from data_structs import (DGraph)
-from Chapter4 import (Route_Btwn_Nodes)
+from data_structs import (BST, DGraph)
+from Chapter4 import (Route_Btwn_Nodes, Minimal_Tree)
 
 
 class Test_Route_Btwn_Nodes(unittest.TestCase):
@@ -64,6 +64,25 @@ class Test_Route_Btwn_Nodes(unittest.TestCase):
         actual = self.solution.route_between_nodes(graph, "a", "b")
         expected = False
         self.assertEqual(actual, expected)
+
+
+class Test_Minimal_Tree(unittest.TestCase):
+    def setUp(self):
+        self.solution = Minimal_Tree.MinimalTree()
+
+    def test_normal(self):
+        array = [1, 2, 3, 4, 5]
+
+        actual = self.solution.minimalTree(array)
+        expected = BST([1, 2, 3, 4, 5])
+
+        self.assertEqual(actual, expected)
+
+    def test_no_array(self):
+        array = None
+
+        with self.assertRaises(AssertionError):
+            actual = self.solution.minimalTree(array)
 
 
 if __name__ == "__main__":
